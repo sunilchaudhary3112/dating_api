@@ -1,0 +1,22 @@
+{
+  "name": "dating_api",
+  "version": "1.0.0",
+  "description": "this is dating api for my app",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunilchaudhary3112/dating_api.git"
+  },
+  "author": "sunil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunilchaudhary3112/dating_api/issues"
+  },
+  "homepage": "https://github.com/sunilchaudhary3112/dating_api#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
