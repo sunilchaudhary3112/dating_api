@@ -4,7 +4,7 @@ Dating Api Docs
 
 Simple Hello World server
 Create simple test service
-Integrate with swagger
+Integrate with swagger -- http://mherman.org/blog/2016/05/26/swagger-and-nodejs/#.WTttIOuGPIW(Useful)
 Create Crud service using validation of data using JOI
 Integrate with passport
 Use promise/logging etc
