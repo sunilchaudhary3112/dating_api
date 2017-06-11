@@ -1,8 +1,14 @@
-var swaggerJSDoc = require('swagger-jsdoc');
+const swaggerJSDoc = require('swagger-jsdoc');
 const express = require('express');
-var path = require('path');
+const path = require('path');
+var bodyParser = require('body-parser')
 const app = express();
+const mongoose = require('mongoose');
 const greeting_route = require('./routes/get_greeting');
+const beer_route = require('./routes/beer');
+
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:27017/test");
 
 // swagger definition
 var swaggerDefinition = {
@@ -26,14 +32,19 @@ var options = {
 // initialize swagger-jsdoc
 var swaggerSpec = swaggerJSDoc(options);
 app.use(express.static(path.join(__dirname, 'public')));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded())
 
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('/api/test', greeting_route);
+app.use('/api', beer_route);
 
 // serve swagger
-app.get('/swagger.json', function(req, res) {
+app.get('/swagger.json', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
 });
 
-app.listen(3000, ()=> console.log('Server running at port 3000'));
+app.listen(3000, () => console.log('Server running at port 3000'));
